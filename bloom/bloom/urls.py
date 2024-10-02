@@ -20,8 +20,4 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('profiles/', urls),
-
 ]
-
-localhost/profiles/main_page
