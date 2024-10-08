@@ -5,46 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bloom</title>
-    <link rel="stylesheet" href= "static/css/homepagestyle.css">
-    <style>
-        body {
-            background-color: #c7db92;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            text-align: center;
-        }
-        h1 {
-            font-size: 96px;
-            font-weight: bold;
-            color: #6e804b;
-        }
-        .btn {
-            background-color: #a7b874;
-            color: #333;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 18px;
-            margin: 20px;
-        }
-        .btn:hover {
-            background-color: #8c9e5d;
-        }
-    </style>
+    <link rel="stylesheet" href= "{% static 'home/css/homepagestyle.css' %}">
 </head>
 <body>
     <div class="container">
         <h1>BLOOM</h1>
-        <a href="#" class="btn">Sign up</a>
-        <a href="#" class="btn">Log in</a>
+        <label>
+            <input type="text" value="gnlrglgbs;bs;ns[;skng; skn;eppvib" readonly>
+        </label>
+        <div class="button-container">
+            <a href="#" class="btn">
+               <button>Sign up</button>
+            </a>
+            <a href="#" class="btn">
+                <button>Log in</button>
+            </a>
+         </div>
     </div>
-
     <!-- Bootstrap JS -->
-    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="../../static/home/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
