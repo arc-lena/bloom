@@ -1,2 +1,3 @@
 bloom/.DS_Store
-bloom/bloom/__pycache__/
+__pycache__/
+.idea/
