@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom - Вхід</title>
+    {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'sign-up/css/index.css' %}">
+
+</head>
+<body>
+    <div class="login-container">
+        <h1 class="logo">BLOOM</h1>
+        <form class="login-form" action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" name="username" placeholder="E-mail or Username" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="login-button">Log in</button>
+            <div class="signup-link">
+                <p>New to Bloom? <a href="{% url 'sign_up' %}">Sign up</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
