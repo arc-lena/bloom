@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance Page</title>
+    <link rel="stylesheet" href= "{% static 'partners/css/index.css' %}">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="menu-icon">☰</div>
+        <ul>
+            <li><a href="#">Info</a></li>
+            <li><a href="#" class="active">Partners</a></li>
+            <li><a href="#">Stats</a></li>
+        </ul>
+        <div class="logo">BLOOM</div>
+    </div>
+    <div class="content">
+        <h1>Your balance: ___</h1>
+        <div class="items-grid">
+            <div class="item-card">
+                <img src="pizza.jpg" alt="Pepperoni Pizza">
+                <div class="item-info">
+                    <p class="item-name">Pepperoni</p>
+                    <p class="item-partner">IQ Pizza</p>
+                    <p class="item-points">1000 points</p>
+                    <button class="more-btn">more</button>
+                    <button class="buy-btn">Buy</button>
+                </div>
+            </div>
+            <!-- Additional items can be added here -->
+        </div>
+        <div class="pagination">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+        </div>
+    </div>
+</body>
+</html>
