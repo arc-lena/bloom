@@ -1,10 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <style>
+        body {
+            background-color: #c9d69e;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .task {
+            background-color: #f0f0f0;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .task-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #e0e0e0;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            width: 600px;
+        }
+
+        .task-text {
+            flex-grow: 1;
+            margin-right: 10px;
+            white-space: normal;
+            word-break: break-word;
+        }
+
+        button {
+            width: 24px;
+            height: 24px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+        }
+
+        .complete-btn {
+            background-color: #4caf50;
+        }
+
+        .delete-btn {
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <div class="task">
+        <h1>Tasks</h1>
+        <div class="task-item">
+            <span class="task-text">Вимкни електроприлади, коли вони не використовуються — Переконайся, що всі електроприлади вдома (комп'ютери, телевізори, зарядні пристрої) вимкнені з розетки, якщо ти їх не використовуєш.</span>
+            <button class="complete-btn">✔</button>
+            <button class="delete-btn">✖</button>
+        </div>
+        <div class="task-item">
+            <span class="task-text">Сортуй відходи — Розділи своє сміття на різні категорії: папір, пластик, скло, органічні відходи. Правильне сортування допоможе зменшити кількість відходів, які потрапляють на сміттєзвалища.</span>
+            <button class="complete-btn">✔</button>
+            <button class="delete-btn">✖</button>
+        </div>
+        <div class="task-item">
+            <span class="task-text">Використовуй багаторазову сумку для покупок — Заміни пластикові пакети на багаторазові сумки, щоб зменшити використання пластику та скоротити кількість відходів.</span>
+            <button class="complete-btn">✔</button>
+            <button class="delete-btn">✖</button>
+        </div>
+    </div>
 </body>
 </html>
