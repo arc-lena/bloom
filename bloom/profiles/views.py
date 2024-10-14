@@ -11,3 +11,6 @@ def sign_up_view(request):
 
 def login_view(request):
     return render(request, 'login/index.html')
+
+def partners_view(request):
+    return render(request, 'partners/index.html')

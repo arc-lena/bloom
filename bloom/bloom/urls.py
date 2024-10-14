@@ -29,6 +29,7 @@ urlpatterns = [
     path("register/", v.register, name="register"),
     path("tasks/", views.tasks, name="tasks"),
 
+    path('partners/', views.partners_view, name='partners'),
 ]
 
 if settings.DEBUG:
