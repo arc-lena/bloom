@@ -129,3 +129,12 @@ body {
     cursor: pointer;
     margin: 0 5px;
 }
+.error-message {
+    color: #f00; /* Червоний колір для повідомлень про помилки */
+    margin-bottom: 10px;
+    font-size: 14px; /* Зробити текст трохи меншим */
+}
+
+.message-area {
+    margin-top: 10px; /* Відстань між формою і повідомленнями */
+}
