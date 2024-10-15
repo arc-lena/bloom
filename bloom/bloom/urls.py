@@ -24,12 +24,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('profiles.urls')),
+    path('partners/', include('partners.urls')),
     path('sign-up/', views.sign_up_view, name='sign_up'),
     path('login/', views.login_view, name='login'),
     path("register/", v.register, name="register"),
-    path("tasks/", views.tasks, name="tasks"),
-
-    path('partners/', views.partners_view, name='partners'),
 ]
 
 if settings.DEBUG:
