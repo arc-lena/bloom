@@ -4,7 +4,7 @@ from .models import Partner, PointTransaction
 
 def partner_list(request):
     partners = Partner.objects.all()
-    return render(request, 'partners/partner_list.html', {'partners': partners})
+    return render(request, 'partners/index.html', {'partners': partners})
 
 
 @login_required
