@@ -24,6 +24,13 @@
                 <p>New to Bloom? <a href="{% url 'sign_up' %}">Sign up</a></p>
             </div>
         </form>
+        {% if messages %}
+            <div class="message-area">
+                {% for message in messages %}
+                    <div class="error-message">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 </body>
 </html>
