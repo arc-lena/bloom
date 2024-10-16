@@ -6,3 +6,8 @@ def home(request):
 
 def login_view(request):
     return render(request, 'login/index.html')
+
+
+def info_view(request):
+    return render(request, "info/index.html")
+

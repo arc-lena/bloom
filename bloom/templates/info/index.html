@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom - Info</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'info/css/index.css' %}">
+</head>
+<body>
+    <div class="container">
+    
+        <div class="sidebar">
+            
+        </div>
+
+        
+        <div class="main-content">
+            
+            <div class="top-bar">
+                <div class="action-btn">
+                    <div class="split-text">
+                        <span class="paper-text">папір</span>
+                        <div class="divider"></div>
+                        <span class="plastic-text">пластик</span>
+                    </div>
+                </div>
+                <button class="action-btn">Як сортувати?</button>
+                <button class="action-btn wide">...</button>
+                <button class="action-btn wide">...</button>
+            </div>
+
+            
+            <div class="content-area">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="bloom-text">BLOOM</div>
+</body>
+</html>
