@@ -19,7 +19,8 @@ from django.urls import include, path
 from profiles import views
 from register import views as v
 from django.conf import settings
-from django.conf.urls.static import static 
+from django.conf.urls.static import static
+from tasks import views as vi
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +29,8 @@ urlpatterns = [
     path('sign-up/', v.sign_up_view, name='sign_up'),
     path('login/', views.login_view, name='login'),
     path('info/', views.info_view, name='info'),
+    path("tasks/", vi.tasks, name="tasks"),
+
 ]
 
 if settings.DEBUG:
