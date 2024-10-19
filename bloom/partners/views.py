@@ -1,13 +1,20 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Partner, PointTransaction
+from django.core.paginator import Paginator
+
 
 @login_required
 def partner_list(request):
     partners = Partner.objects.all()
+    paginator = Paginator(partners, 4)  
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     return render(request, 'partners/index.html', 
-                  {'partners': partners, 
+                  {'page_obj': page_obj, 
                    'user_balance': request.user.profile.points_balance})
+
 
 
 @login_required
