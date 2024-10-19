@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balance Page</title>
-    <link rel="stylesheet" href= "{% static 'partners/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'partners/css/index.css' %}">
     <link rel="stylesheet" href= "{% static 'sidebar.css' %}">
     <link rel="stylesheet" href= "{% static 'profile_btn.css' %}">
 </head>
@@ -15,22 +15,34 @@
     <div class="content">
         <h1>Your balance: {{ user_balance }}</h1>
         <div class="items-grid">
-            <div class="item-card">
-                <img src="pizza.jpg" alt="Pepperoni Pizza">
-                <div class="item-info">
-                    <p class="item-name">Pepperoni</p>
-                    <p class="item-partner">IQ Pizza</p>
-                    <p class="item-points">1000 points</p>
-                    <button class="more-btn">more</button>
-                    <button class="buy-btn">Buy</button>
+            {% for partner in page_obj %}
+                <div class="item-card">
+                    <img src="{{ partner.image.url }}" alt="{{ partner.name }}"> <!-- Замініть на правильний шлях до зображення -->
+                    <div class="item-info">
+                        <p class="item-name">{{ partner.name }}</p>
+                        <p class="item-partner">{{ partner.description }}</p>
+                        <p class="item-points">{{ partner.points_required }} points</p>
+                        <button class="buy-btn">Buy</button>
+                    </div>
                 </div>
-            </div>
-            <!-- Additional items can be added here -->
+            {% endfor %}
         </div>
         <div class="pagination">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
         </div>
     </div>
 </body>
