@@ -12,27 +12,39 @@
 <body>
     {% include 'sidebar.html' %}
     {% include 'profile_btn.html' %}
-    <div class="container">    
+    <div class="container">
         <div class="main-content">
             <div class="top-bar">
-                <div class="action-btn">
-                    <div class="split-text">
-                        <span class="paper-text">папір</span>
-                        <div class="divider"></div>
-                        <span class="plastic-text">пластик</span>
-                    </div>
-                </div>
+
+                <button class="action-btn">Яке пакування обрати?</button>
                 <button class="action-btn">Як сортувати?</button>
-                <button class="action-btn wide">...</button>
-                <button class="action-btn wide">...</button>
+                <button class="action-btn wide">Чи можна це переробити?</button>
+                <button class="action-btn">Поради з повторного використання</button>
             </div>
 
             
             <div class="content-area">
                 {% block content %}
+                <h1 id="paper">Папір</h1>
+                <p>Паперові відходи включають газети, журнали, картон, офісний папір тощо. Перш ніж викидати папір, переконайтеся, що він чистий і сухий, оскільки забруднені паперові вироби можуть не підлягати переробці.</p>
+                <hr class="divider-line">
+                <h1 id="plastic">Пластик</h1>
+                <p>Пластик слід сортувати за типами: PET (пляшки для напоїв), HDPE (флакони для миючих засобів) та інші види. Зверніть увагу на маркування на пластикових виробах, щоб визначити, як їх можна переробити.</p>
+                <hr class="divider-line">
+                <h1 id="glass">Скло</h1>
+                <p>Скло слід розділяти за кольором (прозоре, зелене, коричневе). Ніколи не змішуйте скло з іншими відходами, і переконайтеся, що воно не містить кришок чи металевих елементів.</p>
+                <hr class="divider-line">
+                <h1 id="metal">Метал</h1>
+                <p>До металевих відходів відносяться алюмінієві банки, жерстяні кришки, кухонне приладдя. Метал легко переробляється, але перед цим бажано його очистити від залишків їжі.</p>
+                <hr class="divider-line">
+                <h1 id="organic">Органічні відходи</h1>
+                <p>Органічні відходи включають залишки їжі, обрізки рослин, компостовані матеріали. Їх можна використовувати для створення компосту, що зменшує кількість відходів і збагачує ґрунт.</p>
                 {% endblock %}
             </div>
         </div>
     </div>
+
+
+    <div class="bloom-text">BLOOM</div>
 </body>
 </html>
