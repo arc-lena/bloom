@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -16,7 +17,7 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('home')  # Зміни на бажану URL-адресу після входу
+                return redirect('homepage')  # Зміни на бажану URL-адресу після входу
             else:
                 messages.error(request, 'Неправильне ім’я користувача або пароль.')
         else:
@@ -25,6 +26,7 @@ def login_view(request):
         form = AuthenticationForm()
     return render(request, 'login/index.html', {'form': form})
 
+@login_required
 def info_view(request):
     return render(request, "info/index.html")
 

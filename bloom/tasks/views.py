@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
-def tasks(request):
+@login_required
+def homepage_view(request):
     return render(request, 'tasks/index.html')

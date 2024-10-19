@@ -1,0 +1,18 @@
+<script>
+    function toggleMenu() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('open');
+    }
+</script>
+
+<div class="sidebar" id="sidebar">
+    <a href="{% url 'info' %}">Про нас</a>
+    <a href="{% url 'partner_list' %}">Партнери</a>
+    <a href="">Статистика</a>
+</div>
+
+<button class="open-btn" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+</button>
