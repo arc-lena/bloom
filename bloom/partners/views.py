@@ -2,9 +2,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Partner, PointTransaction
 
+@login_required
 def partner_list(request):
     partners = Partner.objects.all()
-    return render(request, 'partners/index.html', {'partners': partners})
+    return render(request, 'partners/index.html', 
+                  {'partners': partners, 
+                   'user_balance': request.user.profile.points_balance})
 
 
 @login_required

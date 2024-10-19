@@ -10,19 +10,16 @@
 <body>
     <div class="container">
         <h1>BLOOM</h1>
-        <label>
-            <input type="text" value="gnlrglgbs;bs;ns[;skng; skn;eppvib" readonly>
-        </label>
+        <textarea id="textbox" readonly>Твоя подорож до зеленого майбутнього починається тут. 
+Приєднуйся, щоб творити зміни з натхненням.</textarea>
         <div class="button-container">
-            <a href="#" class="btn">
+            <a href="{% url 'sign_up' %}" class="btn">
                <button>Sign up</button>
             </a>
             <a href="{% url 'login' %}" class="btn">
                 <button>Log in</button>
             </a>
-         </div>
+        </div>
     </div>
-    <!-- Bootstrap JS -->
-    <script src="../../static/home/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

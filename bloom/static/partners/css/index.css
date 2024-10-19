@@ -8,46 +8,13 @@
 body {
     display: flex;
     height: 100vh;
-    background-color: #d9e8b0;
-}
-
-.sidebar {
-    width: 200px;
-    background-color: #a5bf4b;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    background-color: #b8cb85;
 }
 
 .menu-icon {
     font-size: 24px;
     align-self: flex-start;
     margin-bottom: 20px;
-}
-
-.sidebar ul {
-    list-style-type: none;
-    width: 100%;
-    text-align: center;
-}
-
-.sidebar ul li {
-    margin: 10px 0;
-}
-
-.sidebar ul li a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    display: block;
-    padding: 10px;
-    border-radius: 4px;
-}
-
-.sidebar ul li a.active {
-    background-color: #d6ff54;
 }
 
 .logo {
@@ -59,6 +26,7 @@ body {
 
 .content {
     flex-grow: 1;
+    margin-left: 20px;
     padding: 20px;
 }
 
@@ -66,6 +34,7 @@ body {
     font-size: 24px;
     color: #333;
     margin-bottom: 20px;
+    margin-left: 250px;
 }
 
 .items-grid {

@@ -17,19 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from profiles import views
-from register import views as v
+from register import views as reg
 from django.conf import settings
 from django.conf.urls.static import static
-from tasks import views as vi
+from tasks import views as tasks
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('profiles.urls')),
     path('partners/', include('partners.urls')),
-    path('sign-up/', v.sign_up_view, name='sign_up'),
+    path('sign-up/', reg.sign_up_view, name='sign_up'),
     path('login/', views.login_view, name='login'),
     path('info/', views.info_view, name='info'),
-    path("tasks/", vi.tasks, name="tasks"),
+    path("homepage/", tasks.homepage_view, name="homepage"),
 
 ]
 
