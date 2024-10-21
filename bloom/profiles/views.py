@@ -30,4 +30,5 @@ def login_view(request):
 def info_view(request):
     return render(request, "info/index.html")
 
-
+def statistics(request):
+    return render(request, 'statistics/index.html')
