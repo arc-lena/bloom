@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Круглий елемент</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Підключення CSS файлу -->
+    <title>Leaderboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'statistics/css/index.css' %}"> <!-- Підключення CSS файлу -->
+    <link rel="stylesheet" href= "{% static 'sidebar.css' %}">
+    <link rel="stylesheet" href= "{% static 'profile_btn.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Odor+Mean+Chey&display=swap" rel="stylesheet"> <!-- Підключення шрифтів -->
+</head>
+<body>
+    {% include 'sidebar.html' %}
+    {% include 'profile_btn.html' %}
+    <div class="profile-circle">
+        <span>Профіль</span>
+    </div>
+    <div class="background-square"></div>
+    <h1 class="leaderboard-text">Leaderboard</h1>
+    
+    <div class="text-container">
+        <div class="text-item">
+            <span>Level</span>
+            <div class="circle">150</div>
+        </div> 
+        <div class="text-item">
+            <span>Daily Tasks</span>
+            <div class="circle">150</div>
+        </div>
+        <div class="text-item">
+            <span>Complete Tasks</span>
+            <div class="circle">150</div>
+        </div>
+    </div>
+    
+    <div class="profile-container">
+        <div class="profile-info">
+            <!-- Можна додати більше інформації про профіль -->
+        </div>
+    </div>
+    
+    <div class="centered-username">
+        <p class="username">Username</p>
+    </div>
+    
+</body>
+</html>

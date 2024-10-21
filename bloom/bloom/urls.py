@@ -30,7 +30,7 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('info/', views.info_view, name='info'),
     path("homepage/", tasks.homepage_view, name="homepage"),
-
+    path('statistics/', views.statistics, name='statistics'),
 ]
 
 if settings.DEBUG:
