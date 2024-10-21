@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="{% static 'profile/css/profile.css' %}">
+    <link rel="stylesheet" href= "{% static 'sidebar.css' %}">
+</head>
+<body>
+    {% include 'sidebar.html' %}
+    <div class="header">
+        <h1>User Profile</h1>
+        <a href="">
+            <img src="{% static 'images/settings-icon.png' %}" alt="Settings" class="settings-icon">
+        </a>
+    </div>
+
+    <div class="profile-page">
+        <div class="profile-info">
+            <img src="{{ user.profile.avatar.url }}" alt="User Avatar" class="avatar">
+            <div>
+                <p>Username: {{ user.username }}</p>
+                <p>Level: {{ user.profile.level }}</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
