@@ -1,0 +1,88 @@
+/* Light green theme for the profile settings page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #c9d7a3; /* Light green background */
+    margin: 0;
+    padding: 0;
+}
+
+.settings-page {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #b8cb85; /* Light green box */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.settings-page h2 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #4a4a4a; /* Darker text */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #98c379; /* Greenish border */
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #eef5e1; /* Slightly lighter green for inputs */
+}
+
+.profile-photo {
+    display: block;
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #98c379; /* Green border for profile photo */
+}
+
+.btn-save {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #98c379; /* Save button with light green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn-save:hover {
+    background-color: #86a85f; /* Darker shade of green on hover */
+}
+
+.delete-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-delete {
+    background-color: #f44336; /* Red delete button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
