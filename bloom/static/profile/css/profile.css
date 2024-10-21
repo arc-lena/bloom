@@ -1,0 +1,54 @@
+/* static/css/user_profile.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #b8cb85;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #b8cb85;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.profile-page {
+    padding: 20px;
+    background-color: #b8cb85;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-info img {
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    margin-right: 20px;
+}
+
+.profile-info p {
+    margin: 0;
+    font-size: 24px;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+}
+
+.settings-icon {
+    width: 80px;
+    height: 80px;
+    float: right;
+    margin-top: -50px;
+}
+
