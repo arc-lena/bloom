@@ -1,0 +1,125 @@
+body {
+    background-color: #B8CB85; /* Світло-зелений фон */
+    font-family: Arial, sans-serif; /* Шрифт для тексту */
+    color: #333; /* Колір тексту */
+    margin: 0; /* Відсутність зовнішніх відступів */
+    padding: 20px; /* Внутрішні відступи */
+    display: flex; /* Використання Flexbox для центрованого розташування */
+    flex-direction: column; /* Розміщення елементів стовпчиком */
+    align-items: center; /* Центрування по горизонталі */
+    height: 100vh; /* Висота на всю сторінку */
+    position: relative; /* Для коректного позиціонування елементів */
+}
+
+h1 {
+    font-family: 'Odor Mean Chey', sans-serif; /* Встановлює шрифт для заголовка */
+    font-weight: 500; /* Середня жирність */
+    font-size: 44px; /* Розмір шрифту */
+    color: #333; /* Колір тексту */
+    text-align: center; /* Центрування заголовка */
+    margin: 0; /* Прибирає відступи */
+    margin-bottom: 20px; /* Відступ знизу */
+    margin-top: -250px;
+    top: 40;
+}
+
+.text-container {
+    display: flex; /* Використання Flexbox для розташування елементів в ряд */
+    justify-content: flex-end; /* Вирівнювання по правій стороні */
+    gap: 0px; /* Відстань між написами */
+    position: absolute;
+    top: 100px; /* Відступ від верху */
+    right: 20px; /* Відступ від правого краю */
+}
+
+/* Стиль для тексту праворуч */
+.text-item {
+    font-family: 'Nunito', sans-serif; /* Шрифт Nunito для написів праворуч */
+    font-size: 24px; /* Розмір шрифту */
+    color: #000000; /* Колір тексту */
+    text-align: center; /* Центрування тексту */
+    margin-top: 90px;
+    margin-right: 190px;
+    padding: 0rem 0rem;
+}
+
+.circle {
+    width: 50px; /* Розмір круга */
+    height: 50px; /* Розмір круга */
+    background-color: #D9D9D9; /* Колір круга */
+    border-radius: 50%; /* Робимо круг */
+    display: flex; /* Для вирівнювання тексту по центру */
+    justify-content: center; /* Горизонтальне вирівнювання */
+    align-items: center; /* Вертикальне вирівнювання */
+    margin-top: 10px; /* Відступ від напису до круга */
+    font-size: 18px; /* Розмір шрифту для числа */
+    color: #333; /* Колір числа */
+}
+
+/* Контейнер для аватара і тексту праворуч */
+.profile-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-align: center; /* Центрування тексту під аватаром */
+}
+
+/* Стиль для аватара */
+.profile-image {
+    width: 100px; /* Ширина зображення */
+    height: 100px; /* Висота зображення */
+    border-radius: 50%; /* Кругле зображення */
+    border: 2px solid #000000; /* Обведення для аватара */
+}
+
+/* Стиль для тексту під аватаром */
+.profile-info p {
+    font-family: 'Nunito', sans-serif;
+    margin: 5px 0;
+}
+
+.username {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000000;
+    font-weight: 800px;
+}
+
+.level {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Центрування другого надпису Username */
+.centered-username {
+    margin-top: 85px; /* Відступ зверху */
+    margin-right: 560px;
+}
+
+.background-square {
+    background-color: #8EA553; /* Інший колір квадратика */
+    width: 100px; /* Ширина квадрата */
+    height: 60px; /* Висота квадрата */
+    border-radius: 60%; /* Заокруглення кутів на 30% */
+    position: absolute; /* Фіксована позиція на сторінці */
+    top: 225px; /* Відступ від верху (зміни на потрібну висоту) */
+    left: 31.5%; /* Вирівнювання по горизонталі */
+    transform: translateX(-50%); /* Центрування квадрата */
+    z-index: -1; /* Квадратик на задньому фоні */
+}
+
+.profile-circle {
+    width: 80px; /* Ширина круга */
+    height: 80px; /* Висота круга */
+    border-radius: 50%; /* Робимо елемент круглим */
+    background-color: white; /* Колір фону */
+    border: 2px solid #8EA553; /* Обводка зеленого кольору */
+    display: flex; /* Використовуємо flex для центрування тексту */
+    justify-content: center; /* Центруємо по горизонталі */
+    align-items: center; /* Центруємо по вертикалі */
+    font-family: 'Nunito', sans-serif; /* Шрифт */
+    font-weight: bold; /* Жирний текст */
+    color: #8EA553; /* Колір тексту */
+    margin-top: 190px;
+    margin-left: -770px;
+}
