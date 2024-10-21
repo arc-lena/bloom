@@ -35,7 +35,9 @@ def profile_view(request):
     return render(request, 'profile/profile.html', {
         'user': request.user, 
     })
-
+@login_required
+def profile_settings_view(request):
+    return render(request, "profile_set/profile_set.html")
 
 def statistics(request):
     return render(request, 'statistics/index.html')
