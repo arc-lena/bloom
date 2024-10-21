@@ -30,4 +30,6 @@ def login_view(request):
 def info_view(request):
     return render(request, "info/index.html")
 
-
+@login_required
+def profile_settings_view(request):
+    return render(request, "profile_set/profile_set.html")
