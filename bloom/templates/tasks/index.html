@@ -4,29 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-    <link rel="stylesheet" href= "{% static 'tasks/css/homepage.css' %}">
-    <link rel="stylesheet" href= "{% static 'sidebar.css' %}">
-    <link rel="stylesheet" href= "{% static 'profile_btn.css' %}">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="{% static 'tasks/css/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'profile_btn.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .task-item {
+            transition: background-color 0.3s;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .completed-task {
+            background-color: #d4edda;
+            border: 2px solid #c3e6cb;
+        }
+    </style>
 </head>
 <body>
     {% include 'sidebar.html' %}
     {% include 'profile_btn.html' %}
     <div class="task">
         <h1>Tasks</h1>
-        <div class="task-item">
-            <span class="task-text">Вимкни електроприлади, коли вони не використовуються — Переконайся, що всі електроприлади вдома (комп'ютери, телевізори, зарядні пристрої) вимкнені з розетки, якщо ти їх не використовуєш.</span>
-            <button class="complete-btn">✔</button>
-        </div>
-        <div class="task-item">
-            <span class="task-text">Сортуй відходи — Розділи своє сміття на різні категорії: папір, пластик, скло, органічні відходи. Правильне сортування допоможе зменшити кількість відходів, які потрапляють на сміттєзвалища.</span>
-            <button class="complete-btn">✔</button>
-        </div>
-        <div class="task-item">
-            <span class="task-text">Використовуй багаторазову сумку для покупок — Заміни пластикові пакети на багаторазові сумки, щоб зменшити використання пластику та скоротити кількість відходів.</span>
-            <button class="complete-btn">✔</button>
-        </div>
+        {% for task in tasks %}
+            <div class="task-item" id="task-{{ task.id }}">
+                <span class="task-text">{{ task.title }} - {{ task.description }}</span>
+                <button class="complete-btn" data-task-id="{{ task.id }}">✔</button>
+            </div>
+        {% empty %}
+            <p>No tasks available.</p>
+        {% endfor %}
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.complete-btn').click(function(e) {
+                e.preventDefault();
+
+                var taskId = $(this).data('task-id');
+                var taskElement = $('#task-' + taskId);
+
+                $.ajax({
+                    url: "{% url 'complete_task' 0 %}".replace('0', taskId),
+                    type: 'POST',
+                    data: {
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    },
+                    success: function(response) {
+                        if (response.completed) {
+                            taskElement.addClass('completed-task');
+                            taskElement.find('.complete-btn').prop('disabled', true);
+                        }
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        console.log('Error:', textStatus, errorThrown);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
 
