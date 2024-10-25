@@ -39,8 +39,9 @@ h1 {
     color: #000000; /* Колір тексту */
     text-align: center; /* Центрування тексту */
     margin-top: 90px;
-    margin-right: 190px;
+    margin-right: 340px;
     padding: 0rem 0rem;
+    margin-left: -120px;
 }
 
 .circle {
