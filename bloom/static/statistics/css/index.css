@@ -39,8 +39,9 @@ h1 {
     color: #000000; /* Колір тексту */
     text-align: center; /* Центрування тексту */
     margin-top: 90px;
-    margin-right: 190px;
+    margin-right: 340px;
     padding: 0rem 0rem;
+    margin-left: -120px;
 }
 
 .circle {
@@ -92,7 +93,7 @@ h1 {
 
 /* Центрування другого надпису Username */
 .centered-username {
-    margin-top: 85px; /* Відступ зверху */
+    margin-top: -50px; /* Відступ зверху */
     margin-right: 560px;
 }
 
@@ -122,4 +123,13 @@ h1 {
     color: #8EA553; /* Колір тексту */
     margin-top: 190px;
     margin-left: -770px;
+}
+img {
+    width: 10%; /* Зображення займає всю ширину контейнера */
+    height: auto; /* Автоматична висота для збереження пропорцій */
+    max-width: 60px; /* Максимальна ширина зображення */
+    border-radius: 10px; /* Заокруглення кутів */
+    margin-left: -950px;
+    margin-top: 75px;
+
 }

@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bloom - Leaderboard</title>
     <link rel="stylesheet" href="styles.css"> <!-- Підключення CSS файлу -->
-    <title>Leaderboard</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'statistics/css/index.css' %}"> <!-- Підключення CSS файлу -->
     <link rel="stylesheet" href= "{% static 'sidebar.css' %}">
@@ -21,18 +19,14 @@
     </div>
     <div class="background-square"></div>
     <h1 class="leaderboard-text">Leaderboard</h1>
-    
+    <img src="/static/images/winphoto.png" alt="Win Photo">
     <div class="text-container">
         <div class="text-item">
             <span>Level</span>
             <div class="circle">150</div>
         </div> 
         <div class="text-item">
-            <span>Daily Tasks</span>
-            <div class="circle">150</div>
-        </div>
-        <div class="text-item">
-            <span>Complete Tasks</span>
+            <span>Completed Tasks</span>
             <div class="circle">150</div>
         </div>
     </div>
