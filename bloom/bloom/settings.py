@@ -40,9 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "profiles",
     "register.apps.RegisterConfig",
-    "tasks",
     "partners",
+    'tasks.apps.TasksConfig',  # тільки один запис для tasks
 ]
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
