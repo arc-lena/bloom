@@ -20,8 +20,15 @@ class Task(models.Model):
         selected_tasks = random.sample(tasks, min(3, len(tasks)))
         return selected_tasks
 
+    @staticmethod
+    def save_task_status(user):
+        tasks = Task.objects.all()
+        for task in tasks:
+            TaskStatus.objects.get_or_create(task=task, user=user)
+
     def __str__(self):
         return self.title
+
 
 class TaskStatus(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
@@ -34,3 +41,4 @@ class TaskStatus(models.Model):
 
     def __str__(self):
         return f"({self.user}) {self.task.title} - {'Completed' if self.completed else 'Not Completed'}"
+
