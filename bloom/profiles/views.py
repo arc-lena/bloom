@@ -3,6 +3,9 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
+from .models import Profile
+from profiles.models import Profile
+
 
 # Create your views here.
 def home(request):
@@ -38,6 +41,15 @@ def profile_view(request):
 @login_required
 def profile_settings_view(request):
     return render(request, "profile_set/profile_set.html")
+
+def leaderboard_and_statistics_view(request):
+    top_users = Profile.objects.filter(level__isnull=False).order_by('-level')[:5]
+    completed_tasks = 150  
+
+    return render(request, 'statistics/index.html', {
+        'top_users': top_users,
+        'completed_tasks': completed_tasks,
+    })
 
 def statistics(request):
     return render(request, 'statistics/index.html')
