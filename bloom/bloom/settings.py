@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "profiles",
     "register.apps.RegisterConfig",
     "partners",
-    'tasks.apps.TasksConfig',  # тільки один запис для tasks
+    'tasks',
 ]
 
 
@@ -137,4 +137,14 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 LOGIN_REDIRECT_URL = '/'  # URL для перенаправлення після успішного входу
 LOGOUT_REDIRECT_URL = '/login/'  # URL для перенаправлення після виходу
 
+# Celery settings
+CELERY_BROKER_URL = 'amqp://localhost'  # RabbitMQ broker URL
+CELERY_RESULT_BACKEND = 'rpc://'  # Use RPC backend for results
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Europe/Kyiv'
+
+# Celery Beat settings
+INSTALLED_APPS += ['django_celery_beat']
 

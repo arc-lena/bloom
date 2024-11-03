@@ -7,3 +7,4 @@ from .models import Task
 def create_task_status_for_new_user(sender, instance, created, **kwargs):
     if created:
         Task.save_task_status(instance)
+        Task.select_random_tasks(instance)
