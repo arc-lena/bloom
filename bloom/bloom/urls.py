@@ -31,6 +31,8 @@ urlpatterns = [
     path('info/', views.info_view, name='info'),
     path("homepage/", tasks.homepage, name="homepage"),
     path('statistics/', views.statistics, name='statistics'),
+    path('settings/', include('profiles.urls')),
+    path('', include('profiles.urls')),  # Підключення маршрутів додатка profile_set
     path('homepage/', include('tasks.urls')),
 ]
 

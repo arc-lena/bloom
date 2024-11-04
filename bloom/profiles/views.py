@@ -4,8 +4,8 @@ from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .models import Profile
-from profiles.models import Profile
-
+from django.contrib.auth import logout
+from .forms import ProfileForm
 
 # Create your views here.
 def home(request):
@@ -38,9 +38,28 @@ def profile_view(request):
     return render(request, 'profile/profile.html', {
         'user': request.user, 
     })
+
 @login_required
 def profile_settings_view(request):
-    return render(request, "profile_set/profile_set.html")
+    user = request.user
+    if request.method == 'POST':
+        if 'delete_account' in request.POST:
+            logout(request)
+            user.delete()
+            messages.success(request, "Ваш акаунт було видалено.")
+            return redirect('home')
+        else:
+            form = ProfileForm(request.POST, instance=user)
+            if 'photo' in request.FILES:
+                user.profile.avatar = request.FILES['photo']
+            if form.is_valid():
+                form.save()
+                messages.success(request, "Ваші зміни збережено.")
+                return render(request, "profile_set/profile_set.html")
+    else:
+        form = ProfileForm(instance=user) 
+
+    return render(request, "profile_set/profile_set.html", {'form': form})
 
 def leaderboard_and_statistics_view(request):
     top_users = Profile.objects.filter(level__isnull=False).order_by('-level')[:5]
@@ -53,3 +72,14 @@ def leaderboard_and_statistics_view(request):
 
 def statistics(request):
     return render(request, 'statistics/index.html')
+
+@login_required
+def delete_account(request):
+    if request.method == 'POST':
+        user = request.user
+        logout(request) 
+        user.delete() 
+        messages.success(request, "Your account has been deleted.")
+        return redirect('home')  
+    return redirect('profile')
+
