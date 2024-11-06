@@ -19,7 +19,7 @@ app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
 app.conf.beat_schedule = {
     'midnight-update': {
-        'task': 'tasks.tasks.daily_task_selection',
+        'task': 'usertasks.tasks.daily_task_selection',
         'schedule': crontab(hour=0, minute=0),
     },
 }

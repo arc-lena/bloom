@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "profiles",
     "register.apps.RegisterConfig",
     "partners",
-    'tasks',
+    'usertasks',
 ]
 
 
