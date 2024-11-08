@@ -18,7 +18,10 @@
     <div class="background-square"></div>
     <h1 class="leaderboard-text">Leaderboard</h1>
     <img src="{% static 'images/winphoto.png' %}" alt="Win Photo">
-
+    <div class="description">
+        Перегляньте топ-5 користувачів, які досягли найбільших результатів!
+        Оцініть свої досягнення та змагайтеся за місце серед лідерів.
+    </div>
     <div class="leaderboard">
         {% if top_users %}
             {% for user in top_users %}

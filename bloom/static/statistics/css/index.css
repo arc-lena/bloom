@@ -24,6 +24,29 @@ h1 {
     position: fixed;
 }
 
+.leaderboard-text {
+    font-size: 42px;
+    position: fixed;
+    margin-top: 0px;
+}
+    
+.description {
+    font-family: 'Odor Mean Chey', cursive;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .description p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #555;
+  }
+
 .text-container {
     display: flex; 
     justify-content: flex-end; 
