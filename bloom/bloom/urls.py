@@ -20,19 +20,30 @@ from profiles import views
 from register import views as reg
 from django.conf import settings
 from django.conf.urls.static import static
+from django.shortcuts import redirect
+from django.contrib.auth.views import LogoutView
+
+
+def redirect_if_logged_in(view_func):
+    def _wrapped_view(request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('homepage')
+        return view_func(request, *args, **kwargs)
+    return _wrapped_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('profiles.urls')),
+    path('', redirect_if_logged_in(views.home), name='home'),  # Перенаправлення з головної сторінки
     path('partners/', include('partners.urls')),
-    path('sign-up/', reg.sign_up_view, name='sign_up'),
-    path('login/', views.login_view, name='login'),
+    path('sign-up/', redirect_if_logged_in(reg.sign_up_view), name='sign_up'),
+    path('login/', redirect_if_logged_in(views.login_view), name='login'),
     path('info/', views.info_view, name='info'),
     path('statistics/', views.statistics, name='statistics'),
     path('settings/', include('profiles.urls')),
-    path('', include('profiles.urls')),  # Підключення маршрутів додатка profile_set
     path('homepage/', include('usertasks.urls')),
+    path('logout/', LogoutView.as_view(), name='logout'),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
