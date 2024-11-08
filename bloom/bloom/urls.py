@@ -20,7 +20,6 @@ from profiles import views
 from register import views as reg
 from django.conf import settings
 from django.conf.urls.static import static
-from tasks import views as tasks
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,9 +28,10 @@ urlpatterns = [
     path('sign-up/', reg.sign_up_view, name='sign_up'),
     path('login/', views.login_view, name='login'),
     path('info/', views.info_view, name='info'),
-    path("homepage/", tasks.homepage, name="homepage"),
     path('statistics/', views.statistics, name='statistics'),
-    path('homepage/', include('tasks.urls')),
+    path('settings/', include('profiles.urls')),
+    path('', include('profiles.urls')),  # Підключення маршрутів додатка profile_set
+    path('homepage/', include('usertasks.urls')),
 ]
 
 if settings.DEBUG:

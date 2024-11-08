@@ -6,44 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Settings</title>
     <link rel="stylesheet" href="{% static 'profile_set/css/profile_set.css' %}">
-    <link rel="stylesheet" href= "{% static 'sidebar.css' %}">
-    <link rel="stylesheet" href= "{% static 'profile_btn.css' %}">
-    <script>
-        function confirmDelete() {
-            var result = confirm("Are you sure you want to delete your profile?");
-            if (result) {
-                window.location.href = "{% url 'home' %}";
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="{% static 'sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'profile_btn.css' %}">
 </head>
 <body>
     {% include 'sidebar.html' %}
     {% include 'profile_btn.html' %}
     <div class="settings-page">
-        <h2>Profile Settings</h2>
+        <h2>Налаштування профілю</h2>
         
         <form id="profile-form" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" value="current_username" required>
+                <input type="text" id="username" name="username" value="{{ user.username }}" required>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" value="current_email" required>
+                <input type="email" id="email" name="email" value="{{ user.email }}" required>
             </div>
             <div class="form-group">
                 <label for="photo">Profile Photo:</label>
                 <input type="file" id="photo" name="photo">
-                <img src="default_avatar.png" alt="Profile Photo" class="profile-photo">
+                {% if user.profile.avatar %}
+                    <img src="{{ user.profile.avatar.url }}" alt="Profile Photo" class="profile-photo">
+                {% else %}
+                    <img src="{% static 'default_avatar.png' %}" alt="Profile Photo" class="profile-photo">
+                {% endif %}
             </div>
-            <button type="submit" class="btn-save">Save Changes</button>
+            <button type="submit" class="btn-save">Зберегти зміни</button>            
         </form>
         
         <div class="delete-section">
-            <button type="button" class="btn-delete" onclick="confirmDelete()">Delete Profile</button>
+            <form action="{% url 'delete_user' %}" method="POST">
+                {% csrf_token %}
+                <button type="button" class="btn-delete" onclick="confirmDelete()">Видалити профіль</button>
+            </form>
         </div>
     </div>
+
+    <script>
+        function confirmDelete() {
+            if (confirm("Ви впевнені, що хочете видалити свій профіль? Цю дію не можна скасувати.")) {
+                document.querySelector(".delete-section form").submit();
+            }
+        }
+    </script>
 </body>
 </html>
-

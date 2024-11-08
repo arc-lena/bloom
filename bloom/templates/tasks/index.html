@@ -28,10 +28,10 @@
     {% include 'profile_btn.html' %}
     <div class="task">
         <h1>Tasks</h1>
-        {% for task in tasks %}
-            <div class="task-item" id="task-{{ task.id }}">
-                <span class="task-text">{{ task.title }} - {{ task.description }}</span>
-                <button class="complete-btn" data-task-id="{{ task.id }}">✔</button>
+        {% for status in statuses %}
+            <div class="task-item {% if status.completed %}completed-task{% endif %}" id="task-{{ status.task.id }}">
+                <span class="task-text">{{ status.task.title }} - {{ status.task.description }}</span>
+                <button class="complete-btn" data-task-id="{{ status.task.id }}">✔</button>
             </div>
         {% empty %}
             <p>No tasks available.</p>
