@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse, HttpResponse
-from .models import Task, TaskStatus
-from django.contrib.auth.models import User
+from django.http import JsonResponse
+from .models import TaskStatus
+
 
 @login_required
 def homepage(request):
