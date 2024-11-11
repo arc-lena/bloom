@@ -1,12 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Partner, PointTransaction
+from django.contrib import messages
+from .models import PartnerStatus
 from django.core.paginator import Paginator
 
 
 @login_required
 def partner_list(request):
-    partners = Partner.objects.all()
+    partners = PartnerStatus.objects.filter(user=request.user)
     paginator = Paginator(partners, 4)  
 
     page_number = request.GET.get('page')
@@ -15,24 +16,19 @@ def partner_list(request):
                   {'page_obj': page_obj, 
                    'user_balance': request.user.profile.points_balance})
 
-
-
 @login_required
-def use_points(request, partner_id):
-    partner = get_object_or_404(Partner, id=partner_id)
-    user_balance = request.user.profile.points_balance
-
-
-    if user_balance >= partner.points_required:
-        transaction = PointTransaction.objects.create(
-            user=request.user,
-            partner=partner,
-            status='pending',  
-        )
-
-        request.user.profile.points_balance -= partner.points_required
-        request.user.profile.points_balance.save()
-
-        return redirect('partner_list')
+def redeem(request, partner_status_id):
+    partner_status = get_object_or_404(PartnerStatus, pk=partner_status_id)
+    if partner_status.user != request.user:
+        messages.error(request, 'Ви не маєте доступу до цього партнера')
+    elif request.user.profile.points_balance < partner_status.partner.points_required:
+        messages.error(request, 'Нажаль у вас недостатньо бонусів')
     else:
-        return render(request, 'some_template.html', {'error': 'Not enough points'})
+        success = partner_status.redeem()
+        if success:
+            request.user.profile.points_balance -= partner_status.partner.points_required
+            request.user.profile.save()
+            messages.success(request, 'Ура! Ви успішно використали бонуси')
+        else:
+            messages.error(request, 'Немає доступних промокодів')
+    return redirect('partner_list')
