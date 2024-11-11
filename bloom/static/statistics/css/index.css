@@ -7,7 +7,7 @@ body {
     display: flex; 
     flex-direction: column; 
     align-items: center; 
-    height: 100vh; 
+    height: 80vh; 
     position: relative; 
 }
 
@@ -23,6 +23,29 @@ h1 {
     top: 40;
     position: fixed;
 }
+
+.leaderboard-text {
+    font-size: 42px;
+    position: fixed;
+    margin-top: 0px;
+}
+    
+.description {
+    font-family: 'Odor Mean Chey', cursive;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .description p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #555;
+  }
 
 .text-container {
     display: flex; 
@@ -40,9 +63,9 @@ h1 {
     color: #000000; 
     text-align: center;
     margin-top: 90px;
-    margin-right: 340px;
+    margin-right: 220px;
     padding: 0rem 0rem;
-    margin-left: -120px;    
+    margin-left: -80px;    
 }
 
 .profile-container {
@@ -93,7 +116,7 @@ img {
     height: auto; 
     max-width: 60px; 
     border-radius: 10px; 
-    margin-left: -950px;
+    margin-left: -900px;
     margin-top: 225px;
     position: fixed;
 }
@@ -102,7 +125,7 @@ img {
     display: flex; 
     flex-direction: column; 
     margin-top: 195px;
-    margin-left: -110px;
+    margin-left: 0px;
 }
 
 .leaderboard-item {

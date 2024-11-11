@@ -7,13 +7,36 @@
     <title>User Profile</title>
     <link rel="stylesheet" href="{% static 'profile/css/profile.css' %}">
     <link rel="stylesheet" href= "{% static 'sidebar.css' %}">
+
+    <style>
+        .logout-form {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .logout-btn {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: darkred;
+        }
+    </style>
 </head>
 <body>
     {% include 'sidebar.html' %}
     <div class="header">
-        <h1>User Profile</h1>
-        <a href="">
-            <a href="{% url 'profile_set' %}">
+        <h1>Ім'я користувача</h1>
+        <a href="{% url 'profile_set' %}">
             <img src="{% static 'images/settings-icon.png' %}" alt="profile_set" class="settings-icon">
         </a>
     </div>
@@ -22,13 +45,18 @@
         <div class="profile-info">
             <img src="{{ user.profile.avatar.url }}" alt="User Avatar" class="avatar">
             <div>
-                <p>Username: {{ user.username }}</p>
-                <p>Email: {{ user.email }}</p>
-                <p>Level: {{ user.profile.level }}</p>
-                <p>Completed tasks: {{ user.profile.completed_tasks_count }}</p>
+                <p>Ім'я користувача: {{ user.username }}</p>
+                <p>Імейл: {{ user.email }}</p>
+                <p>Рівень: {{ user.profile.level }}</p>
+                <p>Виконаних завдань: {{ user.profile.completed_tasks_count }}</p>
             </div>
         </div>
     </div>
+    <form method="post" action="{% url 'logout' %}" class="logout-form">
+        {% csrf_token %}
+        <button type="submit" class="logout-btn">Вийти</button>
+    </form>
 
 </body>
 </html>
+
