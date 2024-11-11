@@ -40,7 +40,6 @@ class PartnerStatus(models.Model):
         if promocodes.exists():
             selected_promocode = random.choice(promocodes)
             self.promocode = selected_promocode.promocode
-            selected_promocode.delete()
             self.status = 'redeemed'
             self.save()
             return True

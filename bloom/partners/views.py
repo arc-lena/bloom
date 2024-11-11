@@ -21,14 +21,14 @@ def redeem(request, partner_status_id):
     partner_status = get_object_or_404(PartnerStatus, pk=partner_status_id)
     if partner_status.user != request.user:
         messages.error(request, 'Ви не маєте доступу до цього партнера')
-    if request.user.profile.points_balance < partner_status.partner.points_required:
+    elif request.user.profile.points_balance < partner_status.partner.points_required:
         messages.error(request, 'Нажаль у вас недостатньо бонусів')
-    
-    success = partner_status.redeem()
-    if success:
-        request.user.profile.points_balance -= partner_status.partner.points_required
-        request.user.profile.save()
-        messages.success(request, 'Ура! Ви успішно використали бонуси')
     else:
-        messages.error(request, 'Немає доступних промокодів')
+        success = partner_status.redeem()
+        if success:
+            request.user.profile.points_balance -= partner_status.partner.points_required
+            request.user.profile.save()
+            messages.success(request, 'Ура! Ви успішно використали бонуси')
+        else:
+            messages.error(request, 'Немає доступних промокодів')
     return redirect('partner_list')
