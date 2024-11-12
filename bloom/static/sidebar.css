@@ -16,12 +16,12 @@
 }
 
 .sidebar a {
-    padding: 90px 15px;
+    padding: 80px; /* Зменшений відступ для кнопок */
     text-decoration: none;
     font-size: 18px;
     color: black;
     display: block;
-    transition: background-color 0.3s;
+    font-weight: bold;
 }
 
 .sidebar a:hover {
@@ -57,4 +57,5 @@
     font-weight: bold; 
     color: black; 
     margin: 0; 
+    margin-top: 40px;
 }

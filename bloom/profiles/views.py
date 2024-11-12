@@ -75,6 +75,10 @@ def leaderboard_and_statistics_view(request):
 def statistics(request):
     return render(request, 'statistics/index.html')
 
+
+def tasks_view(request):
+    return render(request, 'tasks/index.html')
+
 @login_required
 def delete_account(request):
     if request.method == 'POST':
