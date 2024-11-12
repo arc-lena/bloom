@@ -1,5 +1,13 @@
+{% load static %} 
+
 <a href="{% url 'profile' %}">
-    <div class="profile-icon">
-        <span>Профіль</span>
+    <div class="profile-container">
+        <div class="profile-icon-container">
+            <img src="{% if user.profile.avatar %}{{ user.profile.avatar.url }}{% else %}{% static 'images/default-avatar.png' %}{% endif %}" alt="Profile Icon" class="profile-icon">
+        </div>
+
+        <div class="profile-username-container">
+            <span class="profile-username">{{ user.username }}</span>
+        </div>
     </div>
 </a>

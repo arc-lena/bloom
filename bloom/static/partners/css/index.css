@@ -87,6 +87,12 @@ body {
     color: white;
 }
 
+.buy-btn:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
 .pagination {
     margin-top: 20px;
     text-align: center;
@@ -134,3 +140,4 @@ body {
     margin-top: 20px;
     text-align: center;
 }
+

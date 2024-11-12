@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .models import Profile
+from partners.models import PartnerStatus
 from django.contrib.auth import logout
 from .forms import ProfileForm
 
@@ -36,7 +37,8 @@ def info_view(request):
 @login_required
 def profile_view(request):
     return render(request, 'profile/profile.html', {
-        'user': request.user, 
+        'user': request.user,
+        'statuses': PartnerStatus.objects.filter(user=request.user, status='redeemed'), 
     })
 
 @login_required

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balance Page</title>
+    <link rel="stylesheet" href= "{% static 'partners/css/pop_up.css' %}">
     <link rel="stylesheet" href="{% static 'partners/css/index.css' %}">
     <link rel="stylesheet" href= "{% static 'sidebar.css' %}">
     <link rel="stylesheet" href= "{% static 'profile_btn.css' %}">
@@ -12,17 +13,28 @@
 <body>
     {% include 'sidebar.html' %}
     {% include 'profile_btn.html' %}
+
+    <div id="popup-message" class="popup-message"></div>
+
     <div class="content">
         <h1>Your balance: {{ user_balance }}</h1>
         <div class="items-grid">
-            {% for partner in page_obj %}
+            {% for partner_status in page_obj %}
                 <div class="item-card">
-                    <img src="{{ partner.image.url }}" alt="{{ partner.name }}"> <!-- Замініть на правильний шлях до зображення -->
+                    <img src="{{ partner_status.partner.image.url }}" alt="{{ partner_status.partner.name }}">
                     <div class="item-info">
-                        <p class="item-name">{{ partner.name }}</p>
-                        <p class="item-partner">{{ partner.description }}</p>
-                        <p class="item-points">{{ partner.points_required }} points</p>
-                        <button class="buy-btn">Buy</button>
+                        <p class="item-name">{{ partner_status.partner.name }}</p>
+                        <p class="item-partner">{{ partner_status.partner.description }}</p>
+                        <p class="item-points">{{ partner_status.partner.points_required }} points</p>
+                        <form method="post" action="{% url 'redeem' partner_status.id %}">
+                            {% csrf_token %}
+                            <button type="button"
+                            onclick="confirmRedeeming(this.form)"
+                            class="buy-btn" 
+                            {% if partner_status.status == 'redeemed' %}disabled{% endif %}>
+                            Redeem
+                            </button>
+                        </form>
                     </div>
                 </div>
             {% endfor %}
@@ -45,5 +57,35 @@
             </span>
         </div>
     </div>
+    <script>
+        // JavaScript to display the pop-up messages
+        document.addEventListener('DOMContentLoaded', function() {
+            const messages = [
+                {% for message in messages %}
+                    {
+                        text: "{{ message }}",
+                        tags: "{{ message.tags }}"
+                    },
+                {% endfor %}
+            ];
+
+            if (messages.length > 0) {
+                const popupMessage = document.getElementById('popup-message');
+                messages.forEach(message => {
+                    popupMessage.textContent = message.text;
+                    popupMessage.classList.add(message.tags);
+                    popupMessage.style.display = 'block';
+                    setTimeout(() => {
+                        popupMessage.style.display = 'none';
+                    }, 5000); // Hide after 5 seconds
+                });
+            }
+        });
+        function confirmRedeeming(form) {
+            if (confirm("Ви впевнені у своєму виборі?")) {
+                form.submit();
+            }
+        }
+    </script>
 </body>
 </html>
