@@ -18,4 +18,5 @@ def update_user_level_on_task_complete(sender, instance, **kwargs):
         profile = instance.user.profile  # Припустимо, що ви маєте зв'язок між TaskStatus і User через Profile
         profile.completed_tasks_count += 1  # Збільшуємо кількість виконаних завдань
         profile.level = profile.completed_tasks_count // 3  # Обчислюємо новий рівень
+        profile.points += 100
         profile.save()
