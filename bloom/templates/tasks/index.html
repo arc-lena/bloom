@@ -21,21 +21,85 @@
             background-color: #d4edda;
             border: 2px solid #c3e6cb;
         }
+
+        .user-level {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 15px;
+        }
+
+        .tooltip {
+            text-align: left;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            color: #f44336;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 800px; 
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            border-radius: 5px;
+            padding: 5px 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        
     </style>
 </head>
 <body>
     {% include 'sidebar.html' %}
     {% include 'profile_btn.html' %}
-    <div class="task">
-        <h1>Tasks</h1>
-        {% for status in statuses %}
-            <div class="task-item {% if status.completed %}completed-task{% endif %}" id="task-{{ status.task.id }}">
-                <span class="task-text">{{ status.task.title }} - {{ status.task.description }}</span>
-                <button class="complete-btn" data-task-id="{{ status.task.id }}">✔</button>
-            </div>
-        {% empty %}
-            <p>No tasks available.</p>
-        {% endfor %}
+    <div class="container">
+        <h2>BLOOM</h2>
+        <h3>Виконуйте завдання та отримуйте бали для знижок!
+            <span class="tooltip">*
+                <span class="tooltiptext">
+                    Завдяки цій сторінці ви можете заробляти бали за виконання простих завдань. 
+                    Кожне завдання — це крок до великих знижок на ваші покупки!
+                    Виконуйте їх, накопичуйте бали та обмінюйте їх на ексклюзивні знижки для ваших покупок у магазинах наших партнерів.
+                    Як це працює:
+
+                    Оберіть завдання, яке вам підходить.
+                    Виконайте його, дотримуючись простих інструкцій.
+                    Отримайте бали за кожне виконане завдання.
+                    Обміняйте набрані бали на знижки для наступних покупок.
+
+                    Не пропустіть можливість заощаджувати, виконуючи завдання, які приносять реальні вигоди! 
+                    Почніть виконувати завдання зараз і отримуйте нагороду за кожен крок.</span>
+            </span>
+        </h3>
+        <div class="task">
+            <h1>Завдання</h1>
+            {% for status in statuses %}
+                <div class="task-item {% if status.completed %}completed-task{% endif %}" id="task-{{ status.task.id }}">
+                    <span class="task-text">{{ status.task.title }} - {{ status.task.description }}</span>
+                    <button class="complete-btn" data-task-id="{{ status.task.id }}">✔</button>
+                </div>
+            {% empty %}
+                <p>No tasks available.</p>
+            {% endfor %}
+        </div>
+
+        <div class="user-level">
+            <p>Ваш рівень: {{ user.profile.level }}</p>
+        </div>
     </div>
 
     <script>
@@ -67,5 +131,6 @@
     </script>
 </body>
 </html>
+
 
 
