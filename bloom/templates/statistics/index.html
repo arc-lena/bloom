@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bloom - Leaderboard</title>
-    <link rel="stylesheet" href="styles.css">
     {% load static %}
     <link rel="stylesheet" href="{% static 'statistics/css/index.css' %}">
     <link rel="stylesheet" href="{% static 'sidebar.css' %}">
@@ -17,7 +16,7 @@
     
     <div class="background-square"></div>
     <h1 class="leaderboard-text">Рейтинг</h1>
-    <img src="{% static 'images/winphoto.png' %}" alt="Win Photo">
+    <img src="{% static 'images/winphoto.png' %}" alt="Win Photo" id="cup">
     <div class="description">
         Перегляньте топ-5 користувачів, які досягли найбільших результатів!
         Оцініть свої досягнення та змагайтеся за місце серед лідерів.
@@ -28,7 +27,7 @@
                 <div class="leaderboard-item">
                     <p class="leaderboard-username">{{ user.user.username }}</p>
                     <div class="level-circle">{{ user.level }}</div>
-                    <div class="points-circle">{{ user.points_balance }}</div>
+                    <div class="points-circle">{{ user.completed_tasks_count }}</div>
                 </div>
             {% endfor %}
         {% else %}
@@ -45,12 +44,6 @@
         </div> 
         <div class="text-item">
             <span>Кількість виконаних завдань</span>
-        </div>
-    </div>
-
-    <div class="profile-container">
-        <div class="profile-info">
-            <!-- Можна додати більше інформації про профіль -->
         </div>
     </div>
 </body>

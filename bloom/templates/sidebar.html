@@ -6,17 +6,14 @@
 </script>
 
 <div class="sidebar" id="sidebar">
-    <a href="{% url 'info' %}">Про нас</a>
+    <a href="{% url 'info' %}">Інформація</a>
     <a href="{% url 'partner_list' %}">Партнери</a>
     <a href="{% url 'statistics' %}">Статистика</a>
-    <a href="{% url 'tasks' %}">Bloom</a>
-
-    
-    <div class="item-card">
-        <div class="panel-footer">
-        </div>
-    </div>
-    
+    <a href="{% url 'homepage' %}" id="bloom-text">Bloom<span class="sidebar-tooltip">*
+            <span class="sidebar-tooltiptext">
+                Перейти на сторіну із завданнями</span>
+        </span>
+    </a>
 </div>
 
 <button class="open-btn" onclick="toggleMenu()">

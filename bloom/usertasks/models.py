@@ -38,8 +38,9 @@ class TaskStatus(models.Model):
     selected = models.BooleanField(default=False)
 
     def toggle_completion(self):
-        self.completed = not self.completed
-        self.save()
+        if not self.completed:
+            self.completed = True
+            self.save()
 
     def __str__(self):
         return f"({self.user}) {self.task.title} - {'Completed' if self.completed else 'Not Completed'}"

@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="{% static 'profile_set/css/profile_set.css' %}">
     <link rel="stylesheet" href="{% static 'sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'profile_btn.css' %}">
+    <link rel="stylesheet" href="{% static 'partners/css/pop_up.css' %}">
 </head>
 <body>
     {% include 'sidebar.html' %}
     {% include 'profile_btn.html' %}
+    <div id="popup-message" class="popup-message"></div>
     <div class="settings-page">
         <h2>Налаштування профілю користувача</h2>
         
@@ -46,6 +48,29 @@
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', 
+        function() {
+            const messages = [
+                {% for message in messages %}
+                    {
+                        text: "{{ message }}",
+                        tags: "{{ message.tags }}"
+                    },
+                {% endfor %}
+            ];
+
+            if (messages.length > 0) {
+                const popupMessage = document.getElementById('popup-message');
+                messages.forEach(message => {
+                    popupMessage.textContent = message.text;
+                    popupMessage.classList.add(message.tags);
+                    popupMessage.style.display = 'block';
+                    setTimeout(() => {
+                        popupMessage.style.display = 'none';
+                    }, 5000); // Hide after 5 seconds
+                });
+            }
+        });
         function confirmDelete() {
             if (confirm("Ви впевнені, що хочете видалити свій профіль? Цю дію не можна скасувати.")) {
                 document.querySelector(".delete-section form").submit();
