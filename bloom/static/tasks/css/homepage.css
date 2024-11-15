@@ -21,10 +21,10 @@ body {
 h2 {
     font-size: 100px;
     color: #8EA553;
-    margin-top: -50px;
-    margin-bottom: 0px;
     text-align: center;
     font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 h3 {
@@ -129,7 +129,7 @@ button {
     border-radius: 5px;
     padding: 5px 10px;
     position: absolute;
-    z-index: 1;
+    z-index: 400;
     bottom: -400%; 
     left: 50%; 
     transform: translateX(-50%); 

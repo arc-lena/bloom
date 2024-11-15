@@ -36,7 +36,7 @@
             <h1>Завдання</h1>
             {% for status in statuses %}
                 <div class="task-item {% if status.completed %}completed-task{% endif %}" id="task-{{ status.task.id }}">
-                    <span class="task-text">{{ status.task.title }} - {{ status.task.description }}</span>
+                    <span class="task-text"><b>{{ status.task.title }}</b><br><br>{{ status.task.description }}</span>
                     <button class="complete-btn" data-task-id="{{ status.task.id }}">✔</button>
                 </div>
             {% empty %}
