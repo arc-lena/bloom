@@ -84,13 +84,11 @@ body {
 .content-area {
     background-color: #D9D9D9; 
     padding: 15px; 
-    height: calc(90vh - 210px); 
-    margin-top: 90px; 
-    width: 70%; 
-    margin-left: 10px; 
+    height: auto; 
+    width:  990px;
+    margin-left: 50px; 
     margin-right: 80px; 
-    position: fixed; 
-    bottom: -30px;
+    position: static;
     border-radius: 5px; 
     margin-bottom: 70px; 
 }

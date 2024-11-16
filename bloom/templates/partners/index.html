@@ -17,7 +17,7 @@
     <div id="popup-message" class="popup-message"></div>
 
     <div class="content">
-        <h1>Your balance: {{ user_balance }}</h1>
+        <h1>Ваш баланс: {{ user_balance }}</h1>
         <div class="items-grid">
             {% for partner_status in page_obj %}
                 <div class="item-card">
@@ -25,14 +25,14 @@
                     <div class="item-info">
                         <p class="item-name">{{ partner_status.partner.name }}</p>
                         <p class="item-partner">{{ partner_status.partner.description }}</p>
-                        <p class="item-points">{{ partner_status.partner.points_required }} points</p>
+                        <p class="item-points">{{ partner_status.partner.points_required }} бонусів</p>
                         <form method="post" action="{% url 'redeem' partner_status.id %}">
                             {% csrf_token %}
                             <button type="button"
                             onclick="confirmRedeeming(this.form)"
                             class="buy-btn" 
                             {% if partner_status.status == 'redeemed' %}disabled{% endif %}>
-                            Redeem
+                            Отримати
                             </button>
                         </form>
                     </div>
@@ -42,23 +42,22 @@
         <div class="pagination">
             <span class="step-links">
                 {% if page_obj.has_previous %}
-                    <a href="?page=1">&laquo; first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    <a href="?page=1">&laquo; перша</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">попередня</a>
                 {% endif %}
 
                 <span class="current">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    Сторінка {{ page_obj.number }} з {{ page_obj.paginator.num_pages }}.
                 </span>
 
                 {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    <a href="?page={{ page_obj.next_page_number }}">наступна</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">остання &raquo;</a>
                 {% endif %}
             </span>
         </div>
     </div>
     <script>
-        // JavaScript to display the pop-up messages
         document.addEventListener('DOMContentLoaded', function() {
             const messages = [
                 {% for message in messages %}
@@ -77,7 +76,7 @@
                     popupMessage.style.display = 'block';
                     setTimeout(() => {
                         popupMessage.style.display = 'none';
-                    }, 5000); // Hide after 5 seconds
+                    }, 5000);
                 });
             }
         });

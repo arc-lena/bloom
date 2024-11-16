@@ -20,7 +20,6 @@ h1 {
     margin: 0; 
     margin-bottom: 20px; 
     margin-top: -250px;
-    top: 40;
     position: fixed;
 }
 
@@ -68,50 +67,13 @@ h1 {
     margin-left: -80px;    
 }
 
-.profile-container {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    text-align: center; 
-}
-
-.profile-image {
-    width: 100px; 
-    height: 100px; 
-    border-radius: 50%; 
-    border: 2px solid #000000; 
-    position: fixed;
-}
-
-.profile-info p {
-    font-family: 'Nunito', sans-serif;
-    margin: 5px 0;
-    position: fixed;
-}
-
 .level {
     font-size: 16px;
     font-weight: 400;
     position: fixed;
 }
 
-.profile-circle {
-    width: 80px; 
-    height: 80px; 
-    border-radius: 50%; 
-    background-color: white; 
-    border: 2px solid #8EA553; 
-    display: flex; 
-    justify-content: center;
-    align-items: center; 
-    font-family: 'Nunito', sans-serif; 
-    font-weight: bold; 
-    color: #8EA553;
-    margin-top: 190px;
-    margin-left: -770px;
-    position: fixed;
-}
-img {
+#cup {
     width: 10%; 
     height: auto; 
     max-width: 60px; 
@@ -132,7 +94,7 @@ img {
     display: flex; 
     justify-content: space-between;
     align-items: center; 
-    padding: 10px; 
+    padding: 0px; 
     border-radius: 5px; 
     gap: 230px;
 }

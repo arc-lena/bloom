@@ -12,16 +12,17 @@
 }
 
 .sidebar.open {
-    left: 0; /* Open state */
+    left: 0; 
 }
 
 .sidebar a {
-    padding: 80px; /* Зменшений відступ для кнопок */
+    padding: 75px;
     text-decoration: none;
     font-size: 18px;
     color: black;
     display: block;
     font-weight: bold;
+    align-items: center;
 }
 
 .sidebar a:hover {
@@ -52,10 +53,39 @@
     padding: 10px; 
 }
 
-.bloom-text {
-    font-size: 1.2em; 
+#bloom-text {
+    font-size: 1.8em; 
     font-weight: bold; 
     color: black; 
     margin: 0; 
-    margin-top: 40px;
+}
+
+.sidebar-tooltip {
+    text-align: left;
+    position: fixed;
+    display: inline-block;
+    cursor: pointer;
+    color: #f44336;
+}
+
+.sidebar-tooltip .sidebar-tooltiptext {
+    visibility: hidden;
+    width: 500px; 
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    border-radius: 5px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; 
+    left: 100px; 
+    transform: translateX(-50%); 
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sidebar-tooltip:hover .sidebar-tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }

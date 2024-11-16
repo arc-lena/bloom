@@ -6,16 +6,16 @@ from django.core.exceptions import ValidationError
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(
         required=True, 
-        widget=forms.EmailInput(attrs={'placeholder': 'E-mail'}))
+        widget=forms.EmailInput(attrs={'placeholder': 'Імейл'}))
     username = forms.CharField(
         required=True, 
-        widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+        widget=forms.TextInput(attrs={'placeholder': 'Ім\'я користувача'}))
     password1 = forms.CharField(
         required=True, 
-        widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
+        widget=forms.PasswordInput(attrs={'placeholder': 'Пароль'}))
     password2 = forms.CharField(
         required=True, 
-        widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}))
+        widget=forms.PasswordInput(attrs={'placeholder': 'Підтвердіть пароль'}))
 
     class Meta:
         model = User
@@ -24,5 +24,5 @@ class RegisterForm(UserCreationForm):
     def clean_email(self):
         email = self.cleaned_data.get('email')
         if User.objects.filter(email=email).exists():
-            raise ValidationError('Email already exists.')
+            raise ValidationError('Такий імейл вже існує')
         return email

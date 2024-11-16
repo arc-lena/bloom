@@ -85,14 +85,9 @@ def delete_account(request):
     if request.method == 'POST':
         user = request.user
         logout(request) 
-        user.delete() 
-        messages.success(request, "Your account has been deleted.")
+        user.delete()
         return redirect('home')  
     return redirect('profile')
-
-
-
-from django.shortcuts import render
 
 def info_view(request):
     question = request.GET.get('question')

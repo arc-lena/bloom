@@ -41,7 +41,7 @@ urlpatterns = [
     path('statistics/', views.statistics, name='statistics'),
     path('settings/', include('profiles.urls')),
     path('homepage/', include('usertasks.urls')),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('logout/', LogoutView.as_view(next_page="home"), name='logout'),
 ]
 
 if settings.DEBUG:

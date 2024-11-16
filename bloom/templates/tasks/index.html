@@ -9,59 +9,6 @@
     <link rel="stylesheet" href="{% static 'sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'profile_btn.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        .task-item {
-            transition: background-color 0.3s;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-
-        .completed-task {
-            background-color: #d4edda;
-            border: 2px solid #c3e6cb;
-        }
-
-        .user-level {
-            margin-top: 20px;
-            padding: 10px;
-            text-align: center;
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 15px;
-        }
-
-        .tooltip {
-            text-align: left;
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            color: #f44336;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 800px; 
-            background-color: #333;
-            color: #fff;
-            text-align: left;
-            border-radius: 5px;
-            padding: 5px 10px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-        
-    </style>
 </head>
 <body>
     {% include 'sidebar.html' %}
@@ -89,7 +36,7 @@
             <h1>Завдання</h1>
             {% for status in statuses %}
                 <div class="task-item {% if status.completed %}completed-task{% endif %}" id="task-{{ status.task.id }}">
-                    <span class="task-text">{{ status.task.title }} - {{ status.task.description }}</span>
+                    <span class="task-text"><b>{{ status.task.title }}</b><br><br>{{ status.task.description }}</span>
                     <button class="complete-btn" data-task-id="{{ status.task.id }}">✔</button>
                 </div>
             {% empty %}

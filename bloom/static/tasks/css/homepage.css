@@ -21,10 +21,10 @@ body {
 h2 {
     font-size: 100px;
     color: #8EA553;
-    margin-top: -200px;
-    margin-bottom: 150px;
     text-align: center;
     font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 h3 {
@@ -91,5 +91,53 @@ button {
     margin-right: auto;
 }
 
+.task-item {
+    transition: background-color 0.3s;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
 
+.completed-task {
+    background-color: #d4edda;
+    border: 2px solid #c3e6cb;
+}
 
+.user-level {
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 15px;
+}
+
+.tooltip {
+    text-align: left;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #f44336;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 800px; 
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    border-radius: 5px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 400;
+    bottom: -400%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
